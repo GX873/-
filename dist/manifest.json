@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "微信视频号数据分析助手",
+  "version": "0.1.0",
+  "description": "自动分析微信视频号数据的Edge浏览器插件",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "notifications",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://channels.weixin.qq.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://channels.weixin.qq.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+} 
